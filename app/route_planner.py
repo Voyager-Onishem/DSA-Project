@@ -1,10 +1,12 @@
 import heapq
-
+from app import app
+from flask import request, render_template, redirect, url_for
+came_from={}
 def dijkstra(graph, start, end):
     # Initialize distances with infinity for all stations except the start station.
     distances = {station: float('inf') for station in graph}
     distances[start] = 0
-
+    
     # Priority queue to keep track of the stations to visit.
     queue = [(0, start)]
 
@@ -68,8 +70,8 @@ if __name__ == "__main__":
         ]
     }
 
-    start_station = "Station A"
-    end_station = "Station C"
+    start_station = request.form['start_station']
+    end_station = request.form['end_station']
 
     route = find_shortest_route(metro_data, start_station, end_station)
     print(f"Shortest Route from {start_station} to {end_station}: {route}")
