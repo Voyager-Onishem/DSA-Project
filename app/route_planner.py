@@ -48,7 +48,12 @@ def find_shortest_route(metro_data, start_station, end_station):
     route = dijkstra(graph, start_station, end_station)
 
     return route
-
+def reconstruct_path(current_station):
+    path = [current_station]
+    while current_station in came_from:
+        current_station = came_from[current_station]
+        path.insert(0, current_station)
+    return path
 if __name__ == "__main__":
     # Sample usage
     metro_data = {
