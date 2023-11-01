@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, jsonify,Blueprint
 import route_planner
-
+from views import views 
 # Example graph
 metro_data = {
     "stations": [
@@ -16,10 +16,8 @@ metro_data = {
 
 def create_app():
     app = Flask(__name__)
-
-    @app.route('/index')
-    def index():
-        return render_template('index.html')
+    app.register_blueprint(views,url_prefix="/")
+    
     '''
     @app.route('/route-planning-endpoint', methods=['POST'])
     def route_planning_endpoint():
