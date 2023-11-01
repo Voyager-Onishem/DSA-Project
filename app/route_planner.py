@@ -1,6 +1,6 @@
 import heapq
-
-from flask import request, render_template, redirect, url_for, jsonify
+from data_loader import metro_data
+from flask import request
 came_from={}
 def dijkstra(graph, start, end):
     # Initialize distances with infinity for all stations except the start station.

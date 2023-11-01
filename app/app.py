@@ -18,20 +18,6 @@ def create_app():
     app = Flask(__name__)
     app.register_blueprint(views,url_prefix="/")
     
-    '''
-    @app.route('/route-planning-endpoint', methods=['POST'])
-    def route_planning_endpoint():
-        if request.json:
-            start_station = request.json.get('start')
-            end_station = request.json.get('end')
-            # Calculate the route
-            result = route_planner.dijkstra(metro_data, start_station, end_station)
-            # Return the result as JSON
-            return jsonify({"route": result})
-
-        # Handle cases where the request doesn't have JSON data
-        return jsonify({"error": "Invalid request"})
-    '''
     return app
 
 app = create_app()
