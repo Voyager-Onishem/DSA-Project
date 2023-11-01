@@ -1,5 +1,5 @@
 import heapq
-from app import app
+
 from flask import request, render_template, redirect, url_for, jsonify
 came_from={}
 def dijkstra(graph, start, end):
@@ -50,6 +50,7 @@ def find_shortest_route(metro_data, start_station, end_station):
     route = dijkstra(graph, start_station, end_station)
 
     return route
+    # return jsonify({"route": result})
 def reconstruct_path(current_station):
     path = [current_station]
     while current_station in came_from:
@@ -74,4 +75,4 @@ if __name__ == "__main__":
     end_station = request.form['end_station']
 
     route = find_shortest_route(metro_data, start_station, end_station)
-    print(f"Shortest Route from {start_station} to {end_station}: {route}")
+    #print(f"Shortest Route from {start_station} to {end_station}: {route}")
