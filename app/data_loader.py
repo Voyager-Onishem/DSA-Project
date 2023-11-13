@@ -1,6 +1,9 @@
 import json
-
+import os
+metro_data=None
 def load_metro_network_data(data_file):
+    print(os.getcwd())
+    global metro_data
     try:
         with open(data_file, "r") as file:
             metro_data = json.load(file)
@@ -10,7 +13,8 @@ def load_metro_network_data(data_file):
         return None
 
 if __name__ == "__main__":
-    data_file = "data/metro_data.json"
+    data_file=os.getcwd()
+    data_file += "/Metro-Route-Planner/app/data/metro_data.json"
     metro_data = load_metro_network_data(data_file)
 
     if metro_data:
