@@ -52,6 +52,7 @@ def find_shortest_route(metro_data, start_station, end_station):
     return route
     # return jsonify({"route": result})
 def reconstruct_path(current_station):
+    global came_from
     path = [current_station]
     while current_station in came_from:
         current_station = came_from[current_station]
@@ -59,6 +60,7 @@ def reconstruct_path(current_station):
     return path
 if __name__ == "__main__":
     # Sample usage
+    '''
     metro_data = {
         "stations": [
             {"name": "Station A"},
@@ -70,9 +72,12 @@ if __name__ == "__main__":
             {"station1": "Station B", "station2": "Station C", "distance": 3.0}
         ]
     }
-
+    start_station="Station A"
+    end_station="Station B"
+    '''
     start_station = request.form['start_station']
     end_station = request.form['end_station']
-
+    
     route = find_shortest_route(metro_data, start_station, end_station)
+    print(route)
     #print(f"Shortest Route from {start_station} to {end_station}: {route}")

@@ -1,20 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
     <title>Metro Trip Planner</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-    <h1>Metro Trip Planner</h1>
-    <form id="trip-form">
-        <label for="start-station">Start Station:</label>
-        <input type="text" id="start-station" name="start" required>
-        <br>
-        <label for="end-station">End Station:</label>
-        <input type="text" id="end-station" name="end" required>
-        <br>
-        <button type="submit">Plan Trip</button>
-    </form>
+    <div class="container">
+        <h1>Metro Trip Planner</h1>
+        <form id="trip-form">
+            <label for="start-station">Starting Station:</label>
+            <input type="text" id="start-station" required>
+            <label for="end-station">Ending Station:</label>
+            <input type="text" id="end-station" required>
+            <button type="submit">Plan My Trip</button>
+        </form>
+        <div id="trip-result"></div>
+    </div>
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+
 </body>
-<script src="app.js"></script>
 </html>
+

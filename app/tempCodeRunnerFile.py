@@ -1,0 +1,1 @@
+app.register_blueprint(views,url_prefix="/")

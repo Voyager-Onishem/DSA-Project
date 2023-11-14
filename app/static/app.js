@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
             end: endStation
         };
 
-        fetch("/route-planning-endpoint", {
+        fetch("/route-planning-endpoint", {  // <-- Correct URL
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
