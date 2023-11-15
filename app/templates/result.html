@@ -7,9 +7,10 @@
 <body>
     <h1>Metro Trip Planner</h1>
     <h2>Your Trip:</h2>
-    <ul id="route">
-        <h1> Take {{routeInformation}} to go from {{startStation}} to {{endStation}}</h1>
-    </ul>
+    <ul id="route"></ul>
+        {% for station in routeInformation %}
+            <li>{{ station }}</li>
+        {% endfor %}
     <a href="index.html">Back to Planning</a>
     <script src="{{ url_for('static', filename='app.js') }}"></script>
 </body>

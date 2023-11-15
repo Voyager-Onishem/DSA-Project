@@ -4,13 +4,12 @@ document.addEventListener("DOMContentLoaded", function() {
         event.preventDefault();
         const startStation = document.getElementById("start-station").value;
         const endStation = document.getElementById("end-station").value;
-
         const data = {
             start: startStation,
             end: endStation
         };
 
-        fetch("/route-planning-endpoint", {  // <-- Correct URL
+        fetch("/route-planning-endpoint", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -20,20 +19,21 @@ document.addEventListener("DOMContentLoaded", function() {
         .then(response => response.json())
         .then(result => {
             // Handle the route information received from the backend
-            const routeInformation = result.route; // Assuming the result object has a 'route' property
-
+            const routeInformation = result.route;
             // Display the result on the result page
-            const routeList = document.getElementById("route");
-            routeList.innerHTML = ''; // Clear any previous content
-
+            let routeList = document.getElementById("route");
+            console.log(document);
+            console.log(routeList);
             for (const station of routeInformation) {
+                console.log(station)
                 const listItem = document.createElement("li");
                 listItem.textContent = station;
-                routeList.appendChild(listItem);
+                routeList.append(listItem);
             }
 
             // Redirect to the result page with route information
-            window.location.href = `result.html?start=${startStation}&end=${endStation}&route=${routeInformation.join('-')}`;
+            //window.location.href = `result?start=${startStation}&end=${endStation}&route=${routeInformation.join('-')}`
+
         })
         .catch(error => {
             console.error("Error:", error);
