@@ -25,5 +25,3 @@ app = create_app()
 
 if __name__ == "__main__":
     app.run()
-
-#run app here and go to http://localhost:5000/

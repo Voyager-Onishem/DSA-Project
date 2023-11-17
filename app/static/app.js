@@ -20,23 +20,30 @@ document.addEventListener("DOMContentLoaded", function() {
         .then(result => {
             // Handle the route information received from the backend
             const routeInformation = result.route;
+
             // Display the result on the result page
-            let routeList = document.getElementById("route");
-            console.log(document);
-            console.log(routeList);
+            let resultContainer = document.getElementById("result");
+
+            // Clear previous results
+            resultContainer.innerHTML = "";
+            console.log(routeInformation);
+            let tracker=1;
             for (const station of routeInformation) {
-                console.log(station)
-                const listItem = document.createElement("li");
-                listItem.textContent = station;
-                routeList.append(listItem);
+                const stationDiv = document.createElement("div");
+                stationDiv.className = "station";
+                stationDiv.textContent = station;
+                if(tracker!==routeInformation.length){
+                    stationDiv.textContent+="  -->";
+                }
+                resultContainer.append(stationDiv);
+                tracker++;
             }
-
             // Redirect to the result page with route information
-            //window.location.href = `result?start=${startStation}&end=${endStation}&route=${routeInformation.join('-')}`
-
+            // window.location.href = `result?start=${startStation}&end=${endStation}&route=${routeInformation.join('-')}`
         })
         .catch(error => {
             console.error("Error:", error);
         });
     });
 });
+

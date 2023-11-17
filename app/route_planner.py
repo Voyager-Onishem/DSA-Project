@@ -78,5 +78,4 @@ if __name__ == "__main__":
     start_station = request.form['start_station']
     end_station = request.form['end_station']
     route = find_shortest_route(metro_data, start_station, end_station)
-    print(route)
     #print(f"Shortest Route from {start_station} to {end_station}: {route}")

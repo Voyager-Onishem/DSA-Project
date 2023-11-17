@@ -1,26 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
-    <title>Metro Trip Planner</title>
-</head>
-<body>
-    <div class="container">
-        <h1>Metro Trip Planner</h1>
-        <form id="trip-form">
-            <label for="start-station">Starting Station:</label>
-            <input type="text" id="start-station" required>
-            <label for="end-station">Ending Station:</label>
-            <input type="text" id="end-station" required>
-            <button type="submit">Plan My Trip</button>
-        </form>
-        <div id="trip-result"></div>
-    </div>
-    <ul id="route"></ul>
-    <script src="{{ url_for('static', filename='app.js') }}"></script>
-
-</body>
+<html>
+    <head>
+        <title>Metro Trip Planner</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    </head>
+    <body>
+        <div class="main-container">
+            <h1>Metro Trip Planner</h1>
+            <div class="bg">
+                <form id="trip-form">
+                    <label for="start-station">Start Station:</label>
+                    <input type="text" id="start-station" name="start" required>
+                    <br>
+                    <label for="end-station">Destination:</label>
+                    <input type="text" id="end-station" name="end" required>
+                    <br>
+                    <button type="submit">Plan Trip</button>
+                </form>
+                <div id="result" class="result-container">
+                </div>
+            </div>
+        </div>
+        <img src="static/assets/metro_map.jpg" alt="no image" style="height: 450px;bottom:0; left:0;">
+        <div class="bottom-link" style="background-color: pink;">
+            <a href="">Click Here to go Back to Planning</a>
+        </div>
+        <script src="{{ url_for('static', filename='app.js') }}"></script>
+    </body>
 </html>
-
